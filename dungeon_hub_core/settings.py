@@ -38,8 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # external apps
     'rest_framework',
+    'drf_spectacular',
 
+    # apps
     'core',
 ]
 
@@ -51,6 +54,14 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
     ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Dungeon Hub API',
+    'DESCRIPTION': 'API para gerenciamento de dados de RPG',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
 }
 
 MIDDLEWARE = [
@@ -89,8 +100,12 @@ WSGI_APPLICATION = 'dungeon_hub_core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dungeon_hub',
+        'USER': 'dungeon_user',
+        'PASSWORD': 'dungeon@123',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
