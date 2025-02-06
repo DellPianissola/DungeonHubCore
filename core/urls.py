@@ -1,11 +1,11 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from core.weapon.api.views import WeaponViewSet
+from core.user.api.views import UserViewSet
 
 
 router = DefaultRouter()
-router.register('weapon', WeaponViewSet)
+router.register('user', UserViewSet)
 
 app_name = 'core'
 

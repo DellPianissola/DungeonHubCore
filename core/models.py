@@ -1,1 +1,1 @@
-from core.weapon.models.weapon import *
+from core.user.models.user import *
