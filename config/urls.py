@@ -4,7 +4,7 @@ from django.conf.urls.static import static
 
 from drf_spectacular.views import SpectacularSwaggerView, SpectacularAPIView, SpectacularRedocView
 
-from dungeon_hub_core import settings
+from config import settings
 
 
 urlpatterns = [
