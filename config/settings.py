@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # external apps
     'rest_framework',
+    'rest_framework_simplejwt',
     'drf_spectacular',
 
     # apps
@@ -129,6 +130,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),  # Tempo de expiração do token de acesso
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),  # Tempo de expiração do token de atualização
+    "ROTATE_REFRESH_TOKENS": True,  # Gera um novo refresh token ao usar o antigo
+    "BLACKLIST_AFTER_ROTATION": True,  # Bloqueia o refresh token antigo
+    "ALGORITHM": "HS256",
+    "SIGNING_KEY": SECRET_KEY,  # Usa a chave secreta do Django
+    "AUTH_HEADER_TYPES": ("Bearer",),  # O token será enviado como "Bearer <token>"
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
@@ -151,3 +162,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Dungeon Hub Core - Swagger',
+    'DESCRIPTION': 'API para gerenciamento de tabelas para a plataforma de RPG.',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,  # Para remover `/schema/` da documentação
+}
