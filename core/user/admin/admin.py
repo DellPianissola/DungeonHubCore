@@ -5,20 +5,20 @@ from core.user.models.user import User
 
 
 class UserAdmin(BaseUserAdmin):
-    list_display = ('id', 'email', 'name', 'is_active', 'is_staff')
+    list_display = ('id', 'email', 'first_name', 'last_name', 'is_active', 'is_staff')
     list_filter = ('is_staff', 'is_active')
-    search_fields = ('email', 'name')
+    search_fields = ('email', 'first_name', 'last_name')
     ordering = ('email',)
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        ('Informações Pessoais', {'fields': ('name',)}),
+        ('Informações Pessoais', {'fields': ('first_name', 'last_name')}),
         ('Permissões', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
         ('Datas Importantes', {'fields': ('last_login',)}),
     )
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'name', 'password1', 'password2', 'is_active', 'is_staff', 'is_superuser')}
+            'fields': ('email', 'first_name', 'last_name', 'password1', 'password2', 'is_active', 'is_staff', 'is_superuser')}
         ),
     )
 

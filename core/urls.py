@@ -5,7 +5,7 @@ from core.user.api.views import UserViewSet
 
 
 router = DefaultRouter()
-router.register('user', UserViewSet)
+router.register('user', UserViewSet, basename='user')
 
 app_name = 'core'
 
