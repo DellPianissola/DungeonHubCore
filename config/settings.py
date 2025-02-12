@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     # apps
     'core',
+    'dharma',
 ]
 
 REST_FRAMEWORK = {
