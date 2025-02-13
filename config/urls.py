@@ -8,6 +8,7 @@ from drf_spectacular.views import SpectacularSwaggerView, SpectacularAPIView, Sp
 from config import settings
 from core.token.api.views import LoginView
 
+
 urlpatterns = [
     path('api/admin/', admin.site.urls),
     path('api/core/', include('core.urls')),
