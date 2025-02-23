@@ -157,7 +157,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Dungeon Hub Core - Swagger',
     'DESCRIPTION': 'API para gerenciamento de tabelas para a plataforma de RPG.',
-    'VERSION': '0.0.1',
+    'VERSION': '0.0.2',
     'SERVE_INCLUDE_SCHEMA': False,  # Para remover `/schema/` da documentação
 }
 
