@@ -1,3 +1,5 @@
+import os
+
 import pytest
 
 from django.urls import reverse
@@ -28,6 +30,8 @@ class TestUserAPI:
 
         assert response.status_code == 201
         assert response.data["name"] == "Teste"
+
+        os.remove('media/nature/test_image.png')
 
 
     def test_list_nature(self):
