@@ -8,7 +8,7 @@ class Nature(models.Model):
     name = models.CharField(max_length=50)
     points = models.IntegerField()
     description = models.TextField()
-    image = models.ImageField()
+    image = models.ImageField(upload_to='nature/')
 
     def __str__(self):
         return self.id
