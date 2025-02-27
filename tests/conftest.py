@@ -4,7 +4,7 @@ from pytest_factoryboy import register
 from rest_framework.test import APIClient
 
 from tests.factories.core import UserFactory
-from tests.factories.dharma import NatureFactory
+from tests.factories.dharma import NatureFactory, TechniqueFactory
 
 
 register(UserFactory)
@@ -19,6 +19,11 @@ def api_client():
 @pytest.fixture
 def nature():
     return NatureFactory()
+
+
+@pytest.fixture
+def technique():
+    return TechniqueFactory()
 
 
 @pytest.fixture

@@ -1,6 +1,7 @@
 import factory
 
 from dharma.nature.models.nature import Nature
+from dharma.technique.models.technique import Technique
 
 
 class NatureFactory(factory.django.DjangoModelFactory):
@@ -10,4 +11,15 @@ class NatureFactory(factory.django.DjangoModelFactory):
     name = factory.Faker("word")
     points = factory.Faker("random_int", min=0, max=100)
     description = factory.Faker("word")
-    # image = factory.django.ImageField()
+
+
+class TechniqueFactory(factory.django.DjangoModelFactory):
+    class Meta:
+        model = Technique
+
+    name = factory.Faker("word")
+    xp_cost = factory.Faker("random_int", min=0, max=100)
+    type = factory.Faker("word")
+    requirements = factory.Faker("word")
+    effect = factory.Faker("word")
+    description = factory.Faker("word")
