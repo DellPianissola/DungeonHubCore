@@ -2,6 +2,7 @@ import factory
 
 from dharma.nature.models.nature import Nature
 from dharma.technique.models.technique import Technique
+from dharma.weapon.models.weapon import Weapon
 
 
 class NatureFactory(factory.django.DjangoModelFactory):
@@ -22,4 +23,13 @@ class TechniqueFactory(factory.django.DjangoModelFactory):
     type = factory.Faker("word")
     requirements = factory.Faker("word")
     effect = factory.Faker("word")
+    description = factory.Faker("word")
+
+
+class WeaponFactory(factory.django.DjangoModelFactory):
+    class Meta:
+        model = Weapon
+
+    name = factory.Faker("word")
+    damage = factory.Faker("random_int", min=0, max=100)
     description = factory.Faker("word")
